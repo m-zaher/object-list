@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Object List Component with Filter</title>
+</head>
+
+<body>
+    <div id="container" style="margin: auto;"> <input type="text" id="object-input"
+            placeholder="Enter attributes (ID, Phone, etc.)..." />
+        <button id="add-object-btn">Add Object</button>
+        <button id="load-object-btn">Load Objects</button>
+        <button id="Clear-object-btn">Clear Objects</button>
+        <object-list max-objects="100" delete-label="X" counter-label="Objects: {count} / {max}"
+            check-full-attributes=true data-filtered-label="Filtered: {count}" cache-objects="true"
+            delete-confirmation-message="هل أنت متأكد أنك تريد حذف هذا العنصر ( {obj} )؟"
+            already-exist-message="Object with these attributes already exists." max-height="400"
+            limit-reached-message="Maximum limit of {max} objects reached."></object-list>
+        <pre id="json-output"></pre>
+    </div>
+
+    <script src="object-list.js"></script>
+    <script>
+        const objectInput = document.getElementById('object-input');
+        const addButton = document.getElementById('add-object-btn');
+        const collection = document.querySelector('object-list');
+        const loadButton = document.getElementById('load-object-btn');
+        const clearObjectButton = document.getElementById('Clear-object-btn');
+
+        addButton.addEventListener('click', () => {
+            const inputValue = objectInput.value.trim();
+            if (!inputValue) return;
+
+            const attributes = inputValue.split(',').map(attr => attr.trim());
+            const object = { attributes };
+            collection.addObject(object);
+            objectInput.value = '';
+            objectInput.focus();
+            document.getElementById('json-output').textContent = collection.getObjectsAsJson();
+        });
+
+        clearObjectButton.addEventListener('click', () => {
+            collection.clearList();
+            objectInput.value = '';
+            objectInput.focus();
+            document.getElementById('json-output').textContent = collection.getObjectsAsJson();
+        });
+
+        collection.addEventListener('filter', (event) => {
+            console.log('Filter applied:', event.detail.filterText);
+        });
+
+        collection.addEventListener('clear-filter', () => {
+            console.log('Filter cleared');
+        });
+
+        collection.addEventListener('object-focus', (event) => {
+            console.log('Object focused:', event.detail.object);
+        });
+
+        collection.addEventListener('object-leave', (event) => {
+            console.log('Object left:', event.detail.object);
+        });
+
+        collection.addEventListener('object-added', (event) => {
+            console.log('Object added:', event.detail.object);
+        });
+
+        collection.addEventListener('object-deleted', (event) => {
+            console.log('Object deleted:', event.detail.deletedObject);
+        });
+
+        collection.addEventListener('list-updated', (event) => {
+            console.log('List updated:', event.detail.list);
+            document.getElementById('json-output').textContent = JSON.stringify(event.detail.list, null, 2);
+        });
+
+        const testData = '[{ "name": "Item 1", "detail": "Detail A" },{ "name": "Item 2", "detail": "Detail B" },{ "name": "Item 3", "detail": "Detail C" }]';
+        loadButton.addEventListener('click', () => {
+            collection.loadObjects(testData);
+        });
+    </script>
+</body>
+
+</html>
