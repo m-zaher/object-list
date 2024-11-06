@@ -294,8 +294,10 @@ class ObjectList extends HTMLElement {
         this.shadowRoot.innerHTML += `
             <div id="counter">${this.counterLabel} 0</div>
             <div id="filter-container">
-                <input id="filter-input" type="text" placeholder="Filter objects..." />
-                <button id="clear-filter-btn" aria-label="Clear Filter">✖</button>
+                <div class="input-wrapper">
+                    <input id="filter-input" type="text" placeholder="Filter objects..." />
+                    <button id="clear-filter-btn" aria-label="Clear Filter">✖</button>
+                </div>
             </div>
             <div id="object-list"></div>
 
