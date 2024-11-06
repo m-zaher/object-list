@@ -85,7 +85,7 @@ class ObjectList extends HTMLElement {
 
             #filter-container {
                 display: flex;
-                align-items: center;
+                /*align-items: center;*/
                 margin-bottom: 10px;
             }
 
