@@ -118,6 +118,7 @@ class ObjectList extends HTMLElement {
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
+    width: 97%;
 }
 
 #clear-filter-btn {
