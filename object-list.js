@@ -80,7 +80,7 @@ class ObjectList extends HTMLElement {
                 font-weight: bold;
                 color: #007bff;
                 margin-bottom: 10px;
-                text-align: center;
+                text-align: left;
             }
 
             #filter-container {
@@ -107,44 +107,53 @@ class ObjectList extends HTMLElement {
                 cursor: pointer;
             }
 
+            #filter-container {
+                display: flex;
+                margin-bottom: 10px;
+            }
+
             .input-wrapper {
-    position: relative;
-    flex: 1;
-    display: flex;
-}
+                position: relative;
+                flex: 1;
+            }
 
-#filter-input {
-    flex: 1;
-    padding: 8px 40px 8px 8px; /* Add padding to the left for the button */
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    width: 97%;
-}
+            #filter-input {
+                flex: 1;
+                padding: 8px 40px 8px 8px; /* Add padding to the left for the button */
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 14px;
+                width: 100%;
+            }
 
-#clear-filter-btn {
-    position: absolute;
-    right: 8px; /* Position it inside the input */
-    top: 50%;
-    transform: translateY(-50%); /* Center vertically */
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    color: #dc3545; /* Change color to match your design */
-    font-size: 16px; /* Adjust size */
-    cursor: pointer;
-    border-radius: 50%; /* Make it rounded */
-    width: 30px; /* Set width */
-    height: 30px; /* Set height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+            #clear-filter-btn {
+                position: absolute;
+                right: 10px; /* Position it inside the input */
+                top: 50%;
+                transform: translateY(-50%); /* Center vertically */
+                padding: 0;
+                border: none;
+                background-color: transparent;
+                color: #dc3545; /* Change color to match your design */
+                font-size: 16px; /* Adjust size */
+                cursor: pointer;
+                border-radius: 50%; /* Make it rounded */
+                width: 30px; /* Set width */
+                height: 30px; /* Set height */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0.7; /* Slightly transparent */
+            }
 
-#clear-filter-btn:hover {
-    background-color: rgba(220, 53, 69, 0.1); /* Add hover effect */
-}
+            #clear-filter-btn:hover {
+                opacity: 1; /* Fully visible on hover */
+            }
 
+            #clear-filter-btn:focus {
+                outline: none; /* Remove default focus outline */
+                box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Add custom focus outline */
+            }
             #object-list {
                 display: flex;
                 flex-wrap: wrap;
@@ -315,6 +324,7 @@ class ObjectList extends HTMLElement {
 
         this.shadowRoot.querySelector('#filter-input').addEventListener('input', (e) => {
             this.filterObjects(e.target.value);
+            clearFilterBtn.style.display = e.target.value ? 'block' : 'none'; // Show or hide the clear button
         });
 
         this.shadowRoot.querySelector('#clear-filter-btn').addEventListener('click', () => {
