@@ -292,6 +292,7 @@ class ObjectList extends HTMLElement {
                     <button id="clear-filter-btn" aria-label="Clear Filter">✖</button>
                 </div>
             </div>
+            <input type="hidden" id="object-list-output" />
             <div id="object-list"></div>
 
             <!-- Custom Confirmation Modal -->
@@ -363,6 +364,7 @@ class ObjectList extends HTMLElement {
         this.filteredObjects = this.objectList;
         if (this.cacheObjects) this.updateCache();
         this.renderList();
+        this.updateListOutput(); // Update the hidden input
         this.dispatchEvent(new CustomEvent('object-added', { detail: { object } }));
         this.dispatchEvent(new CustomEvent('list-updated', { detail: { list: this.objectList } }));
     }
@@ -394,6 +396,7 @@ class ObjectList extends HTMLElement {
 
             // Render the updated object list
             this.renderList();
+            this.updateListOutput(); // Update the hidden input
         } catch (error) {
             console.error('Error parsing JSON:', error);
         }
@@ -477,6 +480,7 @@ class ObjectList extends HTMLElement {
             this.objectList = this.objectList.filter(obj => obj !== deletedObject);
             this.filteredObjects = this.objectList;
             this.renderList();
+            this.updateListOutput(); // Update the hidden input
             this.dispatchEvent(new CustomEvent('object-deleted', { detail: { deletedObject } }));
             this.dispatchEvent(new CustomEvent('list-updated', { detail: { list: this.objectList } }));
             this.updateCache();
@@ -595,6 +599,11 @@ class ObjectList extends HTMLElement {
 
     getObjectsAsJson() {
         return JSON.stringify(this.objectList, null, 2);
+    }
+
+    updateListOutput() {
+        const jsonOutputElement = this.shadowRoot.querySelector('#object-list-output');
+        jsonOutputElement.value = this.getObjectsAsJson(); // Update the hidden input with the JSON string
     }
 
     // Set up shortcut for retrieving cached data
