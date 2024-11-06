@@ -76,35 +76,12 @@ class ObjectList extends HTMLElement {
             }
 
             #counter {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
                 font-weight: bold;
                 color: #007bff;
                 margin-bottom: 10px;
+                margin-top: 10px;
                 text-align: left;
-            }
-
-            #filter-container {
-                display: flex;
-                /*align-items: center;*/
-                margin-bottom: 10px;
-            }
-
-            #filter-input {
-                flex: 1;
-                padding: 8px;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-                margin-right: 8px;
-                font-size: 14px;
-            }
-
-            #clear-filter-btn {
-                padding: 8px;
-                border: none;
-                background-color: #dc3545;
-                color: white;
-                border-radius: 4px;
-                cursor: pointer;
             }
 
             #filter-container {
