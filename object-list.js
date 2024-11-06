@@ -259,7 +259,7 @@ class ObjectList extends HTMLElement {
             <div id="counter">${this.counterLabel} 0</div>
             <div id="filter-container">
                 <input id="filter-input" type="text" placeholder="Filter objects..." />
-                <button id="clear-filter-btn">Clear Filter</button>
+                <button id="clear-filter-btn" aria-label="Clear Filter">✖</button>
             </div>
             <div id="object-list"></div>
 
