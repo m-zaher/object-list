@@ -613,7 +613,7 @@ class ObjectList extends HTMLElement {
             this.filteredObjects = this.objectList = this.loadCachedObjects() || [];
             this.renderList();
             this.updateCounter(false);  // Revert to default counter label
-            //console.log(`Shortcut activated for component: ${this.id}`);
+            this.updateListOutput(); // Update the hidden input
         }
     }
 
