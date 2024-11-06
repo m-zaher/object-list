@@ -131,11 +131,11 @@ class ObjectList extends HTMLElement {
             #clear-filter-btn {
                 position: absolute;
                 right: 10px; /* Position it inside the input */
-                top: 50%;
+                top: 45%;
                 transform: translateY(-50%); /* Center vertically */
                 padding: 0;
                 border: none;
-                background-color: transparent;
+                background-color: transparent; /* Default background */
                 color: #dc3545; /* Change color to match your design */
                 font-size: 16px; /* Adjust size */
                 cursor: pointer;
@@ -146,9 +146,12 @@ class ObjectList extends HTMLElement {
                 align-items: center;
                 justify-content: center;
                 opacity: 0.7; /* Slightly transparent */
+                transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
             }
 
             #clear-filter-btn:hover {
+                background-color: #dc3545; /* Red background on hover */
+                color: white; /* White text on hover */
                 opacity: 1; /* Fully visible on hover */
             }
 
