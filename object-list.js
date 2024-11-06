@@ -110,6 +110,7 @@ class ObjectList extends HTMLElement {
             #filter-container {
                 display: flex;
                 margin-bottom: 10px;
+                width: 100%; /* Ensure the container takes full width */
             }
 
             .input-wrapper {
@@ -124,6 +125,7 @@ class ObjectList extends HTMLElement {
                 border-radius: 4px;
                 font-size: 14px;
                 width: 100%;
+                box-sizing: border-box; /* Include padding and border in the total width */
             }
 
             #clear-filter-btn {
