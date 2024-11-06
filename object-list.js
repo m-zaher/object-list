@@ -110,6 +110,7 @@ class ObjectList extends HTMLElement {
             .input-wrapper {
     position: relative;
     flex: 1;
+    display: flex;
 }
 
 #filter-input {
