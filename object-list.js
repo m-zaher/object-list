@@ -107,6 +107,42 @@ class ObjectList extends HTMLElement {
                 cursor: pointer;
             }
 
+            .input-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+#filter-input {
+    flex: 1;
+    padding: 8px 40px 8px 8px; /* Add padding to the left for the button */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#clear-filter-btn {
+    position: absolute;
+    right: 8px; /* Position it inside the input */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: #dc3545; /* Change color to match your design */
+    font-size: 16px; /* Adjust size */
+    cursor: pointer;
+    border-radius: 50%; /* Make it rounded */
+    width: 30px; /* Set width */
+    height: 30px; /* Set height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#clear-filter-btn:hover {
+    background-color: rgba(220, 53, 69, 0.1); /* Add hover effect */
+}
+
             #object-list {
                 display: flex;
                 flex-wrap: wrap;
