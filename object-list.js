@@ -140,8 +140,8 @@ class ObjectList extends HTMLElement {
                 font-size: 16px; /* Adjust size */
                 cursor: pointer;
                 border-radius: 50%; /* Make it rounded */
-                width: 30px; /* Set width */
-                height: 30px; /* Set height */
+                width: 25px; /* Set width */
+                height: 25px; /* Set height */
                 display: flex;
                 align-items: center;
                 justify-content: center;
