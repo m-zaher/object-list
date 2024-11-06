@@ -96,7 +96,7 @@
     <div id="container" style="margin: auto;"> <input type="text" id="object-input"
             placeholder="Enter attributes (ID, Phone, etc.)..." />
         <button id="add-object-btn">Add Object</button>
-        <button id="load-object-btn">Load Objects</button>
+        <button id="load-object-btn">Load Test Objects</button>
         <button id="Clear-object-btn">Clear Objects</button>
         <object-list max-objects="100" delete-label="X" counter-label="Objects: {count} / {max}"
             check-full-attributes=true data-filtered-label="Filtered: {count}" cache-objects="true"
@@ -162,7 +162,69 @@
             document.getElementById('json-output').textContent = JSON.stringify(event.detail.list, null, 2);
         });
 
-        const testData = '[{ "name": "Item 1", "detail": "Detail A" },{ "name": "Item 2", "detail": "Detail B" },{ "name": "Item 3", "detail": "Detail C" }]';
+        //const testData = '[{ "name": "Item 1", "detail": "Detail A" },{ "name": "Item 2", "detail": "Detail B" },{ "name": "Item 3", "detail": "Detail C" }]';
+        const testData = [
+            { "name": "Item 1", "detail": "Detail A" },
+            { "name": "Item 2", "detail": "Detail B" },
+            { "name": "Item 3", "detail": "Detail C" },
+            { "name": "Item 4", "detail": "Detail D" },
+            { "name": "Item 5", "detail": "Detail E" },
+            { "name": "Item 6", "detail": "Detail F" },
+            { "name": "Item 7", "detail": "Detail G" },
+            { "name": "Item 8", "detail": "Detail H" },
+            { "name": "Item 9", "detail": "Detail I" },
+            { "name": "Item 10", "detail": "Detail J" },
+            { "name": "Item 11", "detail": "Detail K" },
+            { "name": "Item 12", "detail": "Detail L" },
+            { "name": "Item 13", "detail": "Detail M" },
+            { "name": "Item 14", "detail": "Detail N" },
+            { "name": "Item 15", "detail": "Detail O" },
+            { "name": "Item 16", "detail": "Detail P" },
+            { "name": "Item 17", "detail": "Detail Q" },
+            { "name": "Item 18", "detail": "Detail R" },
+            { "name": "Item 19", "detail": "Detail S" },
+            { "name": "Item 20", "detail": "Detail T" },
+            { "name": "Item 21", "detail": "Detail U" },
+            { "name": "Item 22", "detail": "Detail V" },
+            { "name": "Item 23", "detail": "Detail W" },
+            { "name": "Item 24", "detail": "Detail X" },
+            { "name": "Item 25", "detail": "Detail Y" },
+            { "name": "Item 26", "detail": "Detail Z" },
+            { "name": "Item 27", "detail": "Detail AA" },
+            { "name": "Item 28", "detail": "Detail AB" },
+            { "name": "Item 29", "detail": "Detail AC" },
+            { "name": "Item 30", "detail": "Detail AD" },
+            { "name": "Item 31", "detail": "Detail AE" },
+            { "name": "Item 32", "detail": "Detail AF" },
+            { "name": "Item 33", "detail": "Detail AG" },
+            { "name": "Item 34", "detail": "Detail AH" },
+            { "name": "Item 35", "detail": "Detail AI" },
+            { "name": "Item 36", "detail": "Detail AJ" },
+            { "name": "Item 37", "detail": "Detail AK" },
+            { "name": "Item 38", "detail": "Detail AL" },
+            { "name": "Item 39", "detail": "Detail AM" },
+            { "name": "Item 40", "detail": "Detail AN" },
+            { "name": "Item 41", "detail": "Detail AO" },
+            { "name": "Item 42", "detail": "Detail AP" },
+            { "name": "Item 43", "detail": "Detail AQ" },
+            { "name": "Item 44", "detail": "Detail AR" },
+            { "name": "Item 45", "detail": "Detail AS" },
+            { "name": "Item 46", "detail": "Detail AT" },
+            { "name": "Item 47", "detail": "Detail AU" },
+            { "name": "Item 48", "detail": "Detail AV" },
+            { "name": "Item 49", "detail": "Detail AW" },
+            { "name": "Item 50", "detail": "Detail AX" },
+            { "name": "Item 51", "detail": "Detail AY" },
+            { "name": "Item 52", "detail": "Detail AZ" },
+            { "name": "Item 53", "detail": "Detail BA" },
+            { "name": "Item 54", "detail": "Detail BB" },
+            { "name": "Item 55", "detail": "Detail BC" },
+            { "name": "Item 56", "detail": "Detail BD" },
+            { "name": "Item 57", "detail": "Detail BE" },
+            { "name": "Item 58", "detail": "Detail BF" },
+            { "name": "Item 59", "detail": "Detail BG" },
+            { "name": "Item 60", "detail": "Detail BH" }
+        ]; 
         loadButton.addEventListener('click', () => {
             collection.loadObjects(testData);
         });
