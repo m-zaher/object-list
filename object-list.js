@@ -402,21 +402,6 @@ class ObjectList extends HTMLElement {
         }
     }
 
-    // Save the current list to cache
-    updateCache() {
-        try {
-            localStorage.setItem(this.storageKey, JSON.stringify(this.objectList));
-        } catch (e) {
-            console.error("Caching failed:", e);
-        }
-    }
-
-    // Load cached objects on component initialization
-    loadCachedObjects() {
-        const cachedData = localStorage.getItem(this.storageKey);
-        return cachedData ? JSON.parse(cachedData) : null;
-    }
-
     hasCachedObjects() {
         return localStorage.getItem(this.storageKey) !== null;
     }
@@ -606,14 +591,33 @@ class ObjectList extends HTMLElement {
         jsonOutputElement.value = this.getObjectsAsJson(); // Update the hidden input with the JSON string
     }
 
+    // Save the current list to cache
+    updateCache() {
+        try {
+            localStorage.setItem(this.storageKey, JSON.stringify(this.objectList));
+        } catch (e) {
+            console.error("Caching failed:", e);
+        }
+    }
+
+    // Load cached objects on component initialization
+    getCachedObjects() {
+        const cachedData = localStorage.getItem(this.storageKey);
+        return cachedData ? JSON.parse(cachedData) : null;
+    }
+
+    loadCachedObjects(){
+        this.filteredObjects = this.objectList = this.getCachedObjects() || [];
+        this.renderList();
+        this.updateCounter(false);  // Revert to default counter label
+        this.updateListOutput(); // Update the hidden input
+    }
+
     // Set up shortcut for retrieving cached data
     loadCachedShortcut(e) {
         if (e.altKey && e.shiftKey && e.key === "A") {
             // Retrieve cached data on shortcut and render
-            this.filteredObjects = this.objectList = this.loadCachedObjects() || [];
-            this.renderList();
-            this.updateCounter(false);  // Revert to default counter label
-            this.updateListOutput(); // Update the hidden input
+            this.loadCachedObjects();
         }
     }
 
