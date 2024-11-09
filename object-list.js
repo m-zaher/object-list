@@ -279,7 +279,7 @@ class ObjectList extends HTMLElement {
             /* Float cancel and confirm buttons and add an equal width */
             .cancel-btn, .confirm-btn {
                 float: left;
-                width: 50%;
+                width: 48%;
                 margin:0px;
                 border:none !important;
                 border-radius: 0px;
