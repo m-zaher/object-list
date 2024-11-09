@@ -253,6 +253,9 @@ class ObjectList extends HTMLElement {
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                 max-width: 300px;
                 text-align: center;
+                border-top-color: #009432;
+                border-top-style: outset;
+                border-top-width: 5px;
             }
 
             #confirmation-message{
@@ -296,7 +299,7 @@ class ObjectList extends HTMLElement {
             <div id="object-list"></div>
 
             <!-- Custom Confirmation Modal -->
-            <div id="modal-overlay" tabindex="0" role="dialog" aria-labelledby="confirmation-message">
+            <div id="modal-overlay" tabindex="0" role="dialog" tabindex="-1" aria-labelledby="confirmation-message" aria-modal="true">
                 <div id="confirmation-modal">
                     <p id="confirmation-message">Are you sure you want to delete this object?</p>
                     <button class="modal-button cancel-btn">No (Esc)</button>
@@ -332,6 +335,7 @@ class ObjectList extends HTMLElement {
         const cancelBtn = overlay.querySelector('.cancel-btn');
         cancelBtn.style.display = 'none';
         confirmBtn.innerText = 'OK'
+        confirmBtn.focus();
 
         confirmBtn.onclick = () => {
             if (callback) callback(); // Call the callback if provided
