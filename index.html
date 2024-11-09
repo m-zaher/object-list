@@ -136,8 +136,15 @@
         });
 
         toggleDirButton.addEventListener('click', () => {
+            // Get the current direction
             const currentDir = document.body.getAttribute('dir');
-            document.body.setAttribute('dir', currentDir === 'rtl' ? 'ltr' : 'rtl');
+
+            // Toggle the direction
+            if (currentDir === 'rtl') {
+                document.body.setAttribute('dir', 'ltr');
+            } else {
+                document.body.setAttribute('dir', 'rtl');
+            }
         });
 
         collection.addEventListener('filter', (event) => {
