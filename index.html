@@ -93,6 +93,7 @@
 </head>
 
 <body>
+    <button id="toggle-dir-btn">Toggle Direction</button>
     <div id="container" style="margin: auto;"> <input type="text" id="object-input"
             placeholder="Enter attributes (ID, Phone, etc.)..." />
         <button id="add-object-btn">Add Object</button>
@@ -113,6 +114,7 @@
         const collection = document.querySelector('object-list');
         const loadButton = document.getElementById('load-object-btn');
         const clearObjectButton = document.getElementById('Clear-object-btn');
+        const toggleDirButton = document.getElementById('toggle-dir-btn');
 
         addButton.addEventListener('click', () => {
             const inputValue = objectInput.value.trim();
@@ -131,6 +133,11 @@
             objectInput.value = '';
             objectInput.focus();
             document.getElementById('json-output').textContent = collection.getObjectsAsJson();
+        });
+
+        toggleDirButton.addEventListener('click', () => {
+            const currentDir = document.body.getAttribute('dir');
+            document.body.setAttribute('dir', currentDir === 'rtl' ? 'ltr' : 'rtl');
         });
 
         collection.addEventListener('filter', (event) => {
