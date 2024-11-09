@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
@@ -64,6 +64,28 @@
             margin-bottom: 20px;
         }
 
+        .toggle-btn {
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .toggle-btn:hover {
+            background: linear-gradient(90deg, #0056b3, #003d80);
+            transform: translateY(-2px);
+        }
+
+        .toggle-btn i {
+            margin-right: 5px;
+        }
+
         #json-output {
             background: #e9ecef;
             padding: 10px;
@@ -93,7 +115,10 @@
 </head>
 
 <body>
-    <button id="toggle-dir-btn">Toggle Direction</button>
+    <div style="margin: auto; max-width: 1200px; padding: 10px;">
+        <button id="toggle-dir-btn" class="toggle-btn">Switch to LTR</button>
+    </div>
+
     <div id="container" style="margin: auto;"> <input type="text" id="object-input"
             placeholder="Enter attributes (ID, Phone, etc.)..." />
         <button id="add-object-btn">Add Object</button>
@@ -136,14 +161,13 @@
         });
 
         toggleDirButton.addEventListener('click', () => {
-            // Get the current direction
-            const currentDir = document.body.getAttribute('dir');
-
-            // Toggle the direction
+            const currentDir = document.body.getAttribute('dir') || 'ltr';
             if (currentDir === 'rtl') {
                 document.body.setAttribute('dir', 'ltr');
+                toggleDirButton.textContent = 'Switch to RTL';
             } else {
                 document.body.setAttribute('dir', 'rtl');
+                toggleDirButton.textContent = 'Switch to LTR';
             }
         });
 
