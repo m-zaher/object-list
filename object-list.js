@@ -207,9 +207,6 @@ class ObjectList extends HTMLElement {
                 }
             }
 
-
-
-
             .object-item:hover {
                 background-color: #e9ecef;
             }
