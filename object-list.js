@@ -240,27 +240,44 @@ class ObjectList extends HTMLElement {
                 width: 100%;
                 height: 100%;
                 background: rgba(0, 0, 0, 0.5);
+                background:#474e5d;
                 align-items: center;
                 justify-content: center;
-                z-index: 1000;
+                z-index: 1;
             }
 
             /* Modal box */
             #confirmation-modal {
-                background: #fff;
+                background: #fefefe;
                 padding: 20px;
-                border-radius: 8px;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                max-width: 300px;
+                min-width: 270px;
+                max-width: 500px;
                 text-align: center;
+                
+                margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+                border: 1px solid #888;
+                width: 80%; /* Could be more or less, depending on screen size */
+
                 border-top-color: #009432;
                 border-top-style: outset;
                 border-top-width: 5px;
             }
+            
+            /* Add Animation */
+            @-webkit-keyframes animatetop {
+                from {top:-300px; opacity:0} 
+                to {top:0; opacity:1}
+            }
+
+            @keyframes animatetop {
+                from {top:-300px; opacity:0}
+                to {top:0; opacity:1}
+            }
 
             #confirmation-message{
-                font-weight: bold;
-                font-size: 15px;
+                font-weight: 800;
+                font-size: 20px;
             }
 
             /* Modal buttons */
@@ -272,16 +289,35 @@ class ObjectList extends HTMLElement {
                 cursor: pointer;
             }
 
-            .confirm-btn {
-                background-color: #007bff;
-                color: white;
+            button:hover {
+                opacity:10;
+                transform: scale(1.05); /* Slightly enlarge */
             }
 
+            /* Float cancel and confirm buttons and add an equal width */
+            .cancel-btn, .confirm-btn {
+                width: 47%;
+                margin:0px;
+                border:none !important;
+                border-radius: 0px;
+                margin-top:10px;
+                font-weight: 700;
+                padding: 10px;
+            }
+
+            /* Add a color to the cancel button */
             .cancel-btn {
-                background-color: #dc3545;
-                color: white;
+                background-color: #ccc;
+                color: black;
             }
 
+            /* Add a color to the delete button */
+            .confirm-btn {
+                background-color: #f44336;
+                color:white;
+            }
+
+            
         `;
         this.shadowRoot.appendChild(style);
     }
@@ -335,6 +371,7 @@ class ObjectList extends HTMLElement {
         const cancelBtn = overlay.querySelector('.cancel-btn');
         cancelBtn.style.display = 'none';
         confirmBtn.innerText = 'OK'
+        confirmBtn.style.backgroundColor = '#28a745';
         confirmBtn.focus();
 
         confirmBtn.onclick = () => {
@@ -462,6 +499,10 @@ class ObjectList extends HTMLElement {
 
         const confirmBtn = overlay.querySelector('.confirm-btn');
         const cancelBtn = overlay.querySelector('.cancel-btn');
+        confirmBtn.style.backgroundColor = '#dc3545';
+        confirmBtn.innerText = 'Yes (Ctrl+Enter)'
+        cancelBtn.style.display = 'inline-block';
+        
 
         // Event listener for confirming deletion
         confirmBtn.onclick = () => {
