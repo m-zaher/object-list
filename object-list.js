@@ -272,14 +272,28 @@ class ObjectList extends HTMLElement {
                 cursor: pointer;
             }
 
-            .confirm-btn {
-                background-color: #007bff;
-                color: white;
+            button:hover {
+                opacity:1;
             }
 
+            /* Float cancel and confirm buttons and add an equal width */
+            .cancel-btn, .confirm-btn {
+                float: left;
+                width: 50%;
+                margin:0px;
+                border:none !important;
+                border-radius: 0px;
+            }
+
+            /* Add a color to the cancel button */
             .cancel-btn {
-                background-color: #dc3545;
-                color: white;
+                background-color: #ccc;
+                color: black;
+            }
+
+            /* Add a color to the delete button */
+            .confirm-btn {
+                background-color: #f44336;
             }
 
         `;
