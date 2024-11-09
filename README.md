@@ -13,6 +13,7 @@ A versatile and customizable web component for managing lists of objects with fe
 - [Styling](#styling)
 - [Examples](#examples)
 - [Browser Support](#browser-support)
+- [Demo](https://m-zaher.github.io/object-list/)  <!-- Added Demo section -->
 
 ## Features
 
@@ -131,7 +132,7 @@ const json = collection.getObjectsAsJson();
 
 | Shortcut | Action |
 |----------|--------|
-| Alt + Shift + A | Load cached objects |
+| Alt + Shift + F1 | Load cached objects |
 | Delete | Delete focused object |
 | Esc | Close confirmation modal |
 | Ctrl + Enter | Confirm deletion |

@@ -47,7 +47,7 @@ class ObjectList extends HTMLElement {
         this.cacheObjects = this.hasAttribute('cache-objects') ? this.getAttribute('cache-objects') === 'true' : true;
 
         // Read cached hint text attribute 
-        this.cachedHintText = this.getAttribute('cached-hint-text') || 'Cached data available for this component. Press (Alt + Shift + A) to load.';
+        this.cachedHintText = this.getAttribute('cached-hint-text') || 'Cached data available for this component. Press (Alt + Shift + F) to load.';
 
         this.renderList();
         this.updateCounter();
@@ -615,7 +615,7 @@ class ObjectList extends HTMLElement {
 
     // Set up shortcut for retrieving cached data
     loadCachedShortcut(e) {
-        if (e.altKey && e.shiftKey && e.key === "A") {
+        if (e.altKey && e.shiftKey && e.key === "F1") {
             // Retrieve cached data on shortcut and render
             this.loadCachedObjects();
         }
