@@ -47,7 +47,7 @@ class ObjectList extends HTMLElement {
         this.cacheObjects = this.hasAttribute('cache-objects') ? this.getAttribute('cache-objects') === 'true' : true;
 
         // Read cached hint text attribute 
-        this.cachedHintText = this.getAttribute('cached-hint-text') || 'Cached data available for this component. Press (Alt + Shift + F) to load.';
+        this.cachedHintText = this.getAttribute('cached-hint-text') || 'Cached data available for this component. Press (Alt + Shift + F1) to load.';
 
         this.renderList();
         this.updateCounter();
